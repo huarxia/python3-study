@@ -28,7 +28,9 @@ flag = False
 while not flag:
     # 初始定義為0，在進入while循環后先加1，省得每個if里都寫一遍，優化代碼
     i += 1
-    if (ladderNum % 2 == 1 and ladderNum % 3 == 2 and ladderNum % 5 == 4 and ladderNum % 6 == 5 and ladderNum % 7 == 0):
+    if (ladderNum % 2 == 1 and ladderNum % 3 == 2
+        and ladderNum % 5 == 4 and ladderNum % 6 == 5
+        and ladderNum % 7 == 0):
         flag = True
     else:
         ladderNum = 7 * i
