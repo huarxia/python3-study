@@ -17,6 +17,7 @@ def send_email(host, username, psd, send_to, subject, content):
         s.login(username, psd)
         s.sendmail(username, send_to, msg.as_string())
         s.close()
+        print('邮件发送成功...')
     except Exception as e:
         print('Exception: send email failed', e)
 
