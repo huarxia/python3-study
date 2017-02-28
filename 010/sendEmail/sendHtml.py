@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -11,6 +12,9 @@ import getpass
 
 #! 发送邮件函数
 def send_email(host, username, psd, send_to, subject, content):
+
+    """发送邮件函数
+    """
     msg = MIMEText(content.encode('utf8'), _subtype = 'html', _charset = 'utf8')
     msg['From'] = username
     msg['Subject'] = u'%s' % subject
@@ -26,7 +30,10 @@ def send_email(host, username, psd, send_to, subject, content):
         print('Exception: send email failed', e)
 
 #！ 处理输入密码函数
-def getch():  
+def getch(): 
+    
+    """获取键盘输入函数
+    """ 
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
@@ -37,6 +44,9 @@ def getch():
     return ch
 
 def getpass(maskchar = "*"):
+
+    """处理输入密码函数显示*函数
+    """
     print('请输入电邮密码: ')
     password = ""
     while True:
