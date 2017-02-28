@@ -58,7 +58,7 @@ def getpass(maskchar = "*"):
             if len(password) > 0:
                 sys.stdout.write("\b \b")
                 password = password[:-1]
-        elif ch == b'\x1b':
+        elif ch == b'\x1b': # esc 退出程序
             return None
             break
         else:
