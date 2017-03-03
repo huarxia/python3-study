@@ -27,11 +27,19 @@ def send_email(host, username, psd, send_to, bcc, subject, content):
         s.login(username, psd)
         s.sendmail(username, send_to, msg.as_string())
         s.close()
-        emailStr = ''
+        fileData = crawling.readFile('./data/sended.json').split('\n\n')
+        fileData.pop(len(fileData) - 1)
+        emailStr = '\n\n'.join(fileData) + '\n\n'
+        print('发送对象: ')
         for e in msg['To'].split(','):
             print(e)
-            e += '\n\n'
-            emailStr += e
+            state = 0
+            for item in fileData:
+                if e == item:
+                    state += 1
+            if state <= 0:
+                e += '\n\n'
+                emailStr += e
         print('邮件发送成功...')
         print('发送地址见本地【data】文件夹\n')
         print('--------------------------------------------')
@@ -86,12 +94,12 @@ if __name__ == '__main__':
         print('输入结束,退出程序...')
         sys.exit()
 
-    print('正在发送邮件...')
-    to_list = ['liubiao0810@live.cn', '769904012@qq.com']
+    print('正在发送邮件...\n')
+    # to_list = ['liubiao0810@live.cn', '769904012@qq.com']
     # 抄送人
     bcc = ['769904012@qq.com']
-    # 调用另一个文件
-    # to_list = crawling.main()
+    # 调用另一个文件,一斤写好可以爬取水木社区的招聘信息
+    to_list = crawling.main()
     # print(to_list)
     subject = '应聘高级前端工程师_刘彪'
     with open('./templet.html', 'rt') as f:
