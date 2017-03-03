@@ -9,9 +9,10 @@ import urllib2
 from email.mime.text import MIMEText
 import sys, tty, termios
 import getpass
+import crawling
 
 #! 发送邮件函数
-def send_email(host, username, psd, send_to, subject, content):
+def send_email(host, username, psd, send_to, bcc, subject, content):
 
     """发送邮件函数
     """
@@ -19,21 +20,30 @@ def send_email(host, username, psd, send_to, subject, content):
     msg['From'] = username
     msg['Subject'] = u'%s' % subject
     msg['To'] = ",".join(send_to)
+    # msg['Bcc'] = ",".join(bcc)
 
     try:
         s = smtplib.SMTP_SSL(host, 465)
         s.login(username, psd)
         s.sendmail(username, send_to, msg.as_string())
         s.close()
+        emailStr = ''
+        for e in msg['To'].split(','):
+            print(e)
+            e += '\n\n'
+            emailStr += e
         print('邮件发送成功...')
+        print('发送地址见本地【data】文件夹\n')
+        print('--------------------------------------------')
+        crawling.saveHrefJson('./data/sended.json', emailStr)
     except Exception as e:
         print('Exception: send email failed', e)
 
 #！ 处理输入密码函数
-def getch(): 
-    
+def getch():
+
     """获取键盘输入函数
-    """ 
+    """
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
@@ -77,10 +87,19 @@ if __name__ == '__main__':
         sys.exit()
 
     print('正在发送邮件...')
-    # to_list = ['769904012@qq.com']
-    to_list = 
+    to_list = ['liubiao0810@live.cn', '769904012@qq.com']
+    # 抄送人
+    bcc = ['769904012@qq.com']
+    # 调用另一个文件
+    # to_list = crawling.main()
+    # print(to_list)
     subject = '应聘高级前端工程师_刘彪'
     with open('./templet.html', 'rt') as f:
         data = f.read()
     content = data
-    send_email(host, username, passwd, to_list, subject, content)
+    # 针对求职邮件应该单独发送
+    for email in to_list:
+        emailList = []
+        emailList.append(email)
+        emailList.append('huaxia@itoxs.com')
+        send_email(host, username, passwd, emailList, bcc, subject, content)
