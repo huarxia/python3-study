@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="GBK">
+    <meta name="keywords" content="水木,清华,社区,论坛,BBS,smth" />
+    <meta name="description" content="源于清华的高知社群，象牙塔通向社会的桥梁" />
+    <meta name="author" content="xw2423@BYR fancyrabbit@NewSMTH" />
+    <title>【量邦科技】高级前端工程师</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://images.newsmth.net/nForum/favicon.ico">
+    <script type="text/javascript">
+    if (!document.getElementById('body')) {
+        var redir = window.location.href.replace('/nForum/', '/nForum/#!');
+        window.location.href = redir;
+    }
+    </script>
+    <!--[if lt IE 9]><script src="http://images.newsmth.net/nForum/js/html5.js"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="http://images.newsmth.net/nForum/css/pack_f6e084b246.css" />
+    <style type="text/css">
+    .t-btn a {
+        display: inline-block;
+        text-align: center;
+        font-size: 14px;
+        margin-right: 4px;
+        padding: 2px 6px;
+        padding: 3px 6px 1px\9
+    }
+    
+    .t-btn a:hover {
+        color: #FFF
+    }
+    
+    .t-btn .input {
+        color: #999;
+        font-size: 12px;
+        margin-right: 5px
+    }
+    
+    .t-btn .rss {
+        padding: 0;
+        vertical-align: bottom
+    }
+    
+    .t-btn label {
+        margin-right: 5px;
+        margin-left: 2px;
+        vertical-align: middle
+    }
+    
+    .page {
+        float: right;
+        padding-top: 2px;
+        *padding-top: 0
+    }
+    
+    .t-pre,
+    .t-pre-bottom {
+        margin-top: 2px;
+        width: 100%
+    }
+    
+    .t-pre-bottom .t-btn {
+        margin-left: 5px
+    }
+    
+    .b-head div {
+        cursor: pointer
+    }
+    
+    .b-content {
+        padding: 1px 0;
+        border: 0 none;
+        margin-top: 0
+    }
+    
+    #quick_reply {
+        width: 100%;
+        margin-top: 4px;
+        background: #f3f5fc
+    }
+    
+    #quick_reply td {}
+    
+    textarea {
+        width: 99.5%;
+        height: 70px;
+        border: 1px solid #6688ee;
+        font-size: 12px
+    }
+    
+    #quick_submit {
+        width: 70px;
+        vertical-align: middle
+    }
+    
+    #quick_submit .button {
+        height: 65px;
+        width: 65px;
+        margin: 3px;
+        cursor: pointer
+    }
+    
+    #recommend {
+        visibility: hidden
+    }
+    
+    #sogou_banner {
+        text-align: center
+    }
+    
+    .likes {
+        margin: 20px 50px 50px 50px;
+        background-color: #f0f0f0;
+        border: 1px solid #333333;
+        padding: 10px
+    }
+    
+    .like_name {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px
+    }
+    
+    .like_list {
+        padding: 5px
+    }
+    
+    .like_score_1 {
+        color: red
+    }
+    
+    .like_score_2 {
+        color: green
+    }
+    
+    .like_score_0 {}
+    
+    .like_user {
+        padding-left: 5px;
+        font-weight: bold
+    }
+    
+    .like_msg {
+        padding-left: 5px;
+        color: #333333
+    }
+    
+    .like_time {
+        padding-left: 8px;
+        color: #999999
+    }
+    
+    #midadv_slider {
+        float: center;
+        height: 90px;
+        margin: 5px 0 5px 0
+    }
+    
+    #midadv_slider li {
+        display: none
+    }
+    
+    #midadv_slider li.cur {
+        display: block
+    }
+    </style>
+</head>
+
+<body>
+    <header id="top_head">
+        <aside id="top_menu">
+            <ul>
+                <li><a href="/nForum#">合作交流</a></li>
+                <li><a href="/nForum#">论坛帮助</a></li>
+                <li><a href="/nForum/flink">友情链接</a></li>
+                <li><a href="/nForum#">意见建议</a></li>
+            </ul>
+        </aside>
+        <figure id="top_logo">
+            <a href="/nForum/mainpage"><img src="http://images.newsmth.net/nForum/img/logo.gif" /></a>
+        </figure>
+        <article id="ban_ner">
+            <div id="ban_ner_border"></div>
+        </article>
+    </header>
+    <aside id="menu" class="m-hide">
+        <section id="u_login" class="corner">
+            <form action="/nForum/login" method="post">
+                <div class="u-login-input"><span>帐号:</span>
+                    <input type="text" id="u_login_id" class="input-text input" name="id" />
+                </div>
+                <div class="u-login-input"><span>密码:</span>
+                    <input type="password" id="u_login_passwd" class="input-text input" name="passwd" />
+                </div>
+                <div class="u-login-check">
+                    <input type="checkbox" id="u_login_cookie" name="CookieDate" value="2" />
+                    <label for="u_login_cookie">下次自动登录</label>
+                </div>
+                <div class="u-login-op">
+                    <input type="submit" id="u_login_submit" class="submit" value="登录" />
+                    <input class="submit" type="button" value="注册" id="u_login_reg" />
+                </div>
+            </form>
+        </section>
+        <div id="left_line">
+            <samp class="ico-pos-hide"></samp>
+        </div>
+        <nav id="xlist" class="corner">
+            <ul>
+                <li class="slist"><span class="x-folder"><span class="toggler"></span><a href="javascript:void(0);">全部讨论区</a></span>
+                    <ul class="x-child ajax">
+                        <li>{url:/nForum/slist.json?uid=guest&root=list-section}</li>
+                    </ul>
+                </li>
+                <li class="nlist"><span class="x-folder"><span class="toggler"></span><a href="javascript:void(0);">频道推荐</a></span>
+                    <ul class="x-child ajax">
+                        <li>{url:/nForum/nlist.json?uid=guest&root=list-section}</li>
+                    </ul>
+                </li>
+                <li class="clist"><span class="x-folder"><span class="toggler"></span><a href="javascript:void(0)">控制面板</a></span>
+                    <ul class="x-child" id="list-control">
+                        <li class="leaf"><span class="text"><a href="/nForum/user/query" ><samp class="ico-pos-dot"></samp>查询用户</a></span></li>
+                        <li class="leaf"><span class="text"><a href="/nForum/s" ><samp class="ico-pos-dot"></samp>搜索文章</a></span></li>
+                    </ul>
+                </li>
+                <li class="mlist"><span class="x-folder"><span class="toggler"></span><a href="javascript:void(0)">论坛服务</a></span>
+                    <ul class="x-child">
+                        <li class="leaf"><span class="text"><a href="/nForum/elite/path"><samp class="ico-pos-dot"></samp>精华公布栏</a></span></li>
+                        <li class="leaf"><span class="text"><a href="http://www.newsmth.net/guess/" target="_blank"><samp class="ico-pos-dot"></samp>水木社区竞猜系统</a></span></li>
+                        <li class="leaf"><span class="text"><a href="http://www.2.newsmth.net/" target="_blank"><samp class="ico-pos-dot"></samp>水木二站</a></span></li>
+                        <li class="leaf"><span class="text"><a href="http://www.newsmth.net/data/fterm154.rar"><samp class="ico-pos-dot"></samp>FTERM 2.5.0.154</a></span></li>
+                        <li class="leaf"><span class="text"><a href="http://cterm.phy.ccnu.edu.cn/download/cterm-3.6.1.rar"><samp class="ico-pos-dot"></samp>CTerm 3.6.1</a></span></li>
+                        <li class="leaf"><span class="text"><a href="telnet://bbs.newsmth.net"><samp class="ico-pos-dot"></samp>Telnet登录</a></span></li>
+                    </ul>
+                </li>
+                <li><span class="x-leaf x-search"><span class="toggler"></span>
+                    <input type="text" class="input-text" value="搜索讨论区" id="b_search" />
+                    </span>
+                </li>
+            </ul>
+        </nav>
+        <section id="adv"></section>
+    </aside>
+    <section id="main" class="corner">
+        <nav id="notice" class="corner">
+            <div id="notice_nav"><a style="color: red" href="/nForum/mainpage">水木社区</a>&ensp;>>&ensp;<a href="/nForum/section/5">社会信息</a>&ensp;>>&ensp;<a href="/nForum/section/Career">求职招聘</a>&ensp;>>&ensp;<a href="/nForum/board/Career_Upgrade">社会招聘</a>&ensp;>>&ensp;阅读文章</div>
+        </nav>
+        <section id="body" class="corner">
+            <div class="t-pre">
+                <div class="page">
+                    <ul class="pagination">
+                        <li class="page-pre">贴数:<i>1</i>&emsp;分页:</li>
+                        <li>
+                            <ol title="分页列表" class="page-main">
+                                <li class="page-select"><a title="当前页">1</a></li>
+                            </ol>
+                        </li>
+                        <li class="page-suf"></li>
+                    </ul>
+                </div>
+                <div class="t-btn"><a href="/nForum/article/Career_Upgrade/post" class="a-post button">新话题</a><a href="/nForum/article/Career_Upgrade/tmpl" class="a-post button">模版发文</a><a href="javascript:void(0)" id="a_reply" class="button">快捷回复</a></div>
+            </div>
+            <div class="b-head corner"><span class="n-right"><span style="color:#eee;vertical-align:bottom" id="a_share" _u="http://www.newsmth.net/nForum/article/Career_Upgrade/499906" _c="【量邦科技】高级前端工程师">分享到:</span></span><span class="n-left">文章主题:&ensp;【量邦科技】高级前端工程师</span></div>
+            <div class="b-content corner">
+                <a name="a0"></a>
+                <div class="a-wrap corner">
+                    <table class="article">
+                        <tr class="a-head">
+                            <td class="a-left"><span class="a-u-name"><a href="/nForum/user/query/yxl5995">yxl5995</a></span><span class="a-u-sex"><samp title="男生哦 离线" class="ico-pos-offline-man" ></samp></span></td>
+                            <td>
+                                <ul class="a-func">
+                                    <li>
+                                        <samp class="ico-pos-reply"></samp><a href="/nForum/article/Career_Upgrade/post/499906" class="a-post">回复</a></li>
+                                    <li>
+                                        <samp class="ico-pos-template"></samp><a href="/nForum/article/Career_Upgrade/tmpl?id=499906" class="a-post">模版回复</a></li>
+                                    <li>
+                                        <samp class="ico-pos-forward"></samp><a href="/nForum/article/Career_Upgrade/ajax_forward/499906.json" class="a-func-forward">转寄</a></li>
+                                    <li>
+                                        <samp class="ico-pos-search"></samp><a href="/nForum/s/article?b=Career_Upgrade&au=yxl5995">搜索</a></li>
+                                    <li>
+                                        <samp class="ico-pos-user"></samp><a href="/nForum/article/Career_Upgrade/499906?au=yxl5995">只看此ID</a></li>
+                                </ul><span class="a-pos">楼主</span></td>
+                        </tr>
+                        <tr class="a-body">
+                            <td class="a-left">
+                                <div class="a-u-img"><img src="http://images.newsmth.net/nForum/img/face_default_m.jpg" /></div>
+                                <div class="a-u-uid">三公里</div>
+                                <dl class="a-u-info">
+                                    <dt>身份</dt>
+                                    <dd>用户</dd>
+                                    <dt>文章</dt>
+                                    <dd>552</dd>
+                                    <dt>星座</dt>
+                                    <dd>魔羯座</dd>
+                                    <dt>积分</dt>
+                                    <dd>3028</dd>
+                                    <dt>等级</dt>
+                                    <dd>灵樨(8)</dd>
+                                </dl>
+                            </td>
+                            <td class="a-content">
+                                <p>发信人: yxl5995 (三公里), 信区: Career_Upgrade
+                                    <br /> 标&nbsp;&nbsp;题: 【量邦科技】高级前端工程师
+                                    <br /> 发信站: 水木社区 (Thu Mar&nbsp;&nbsp;2 16:47:18 2017), 站内
+                                    <br />&nbsp;&nbsp;
+                                    <br />&nbsp;&nbsp;
+                                    <br /> 岗位职责：
+                                    <br /> 1、负责产品前端界面的构建，以及各类交互的设计与实现；
+                                    <br /> 2、负责实现产品在不同平台、设备上兼具优质的用户使用体验；
+                                    <br /> 3、参与产品前端样式和脚本的模块设计及优化。
+                                    <br />&nbsp;&nbsp;
+                                    <br /> 任职要求：
+                                    <br /> 1、211院校本科及其以上学历，计算机或通信专业相关背景；
+                                    <br /> 2、3年以上大型互联网企业相关经验；
+                                    <br /> 3、精通HTML5+CSS3+JS编程；
+                                    <br /> 4、精通jQuery等主流JS库，能够熟练运用photoshop；
+                                    <br /> 5、精通JS核心技术DOM、Ajax、JSON和事件处理机制；
+                                    <br /> 6、有JS性能优化经验，追求极致者优先；
+                                    <br /> 7、对量化投资和对冲基金感兴趣，有创业预期；
+                                    <br /> 8、较强责任心和团队协作精神，具备独立思考及解决问题的能力。
+                                    <br />&nbsp;&nbsp;
+                                    <br />&nbsp;&nbsp;
+                                    <br />&nbsp;&nbsp;
+                                    <br /> 【公司简介】
+                                    <br /> 北京量邦信息科技股份有限公司（简称“量邦科技”），新三板量化投资和智能金融第一股（股票代码：835352）。公司拥有天枢证券阿尔法、天语CTA、对冲基金业绩评价和FOF配置等多套PC端量化投资研究和交易平台，以及量化投资云平台大宽网（www.daquant.com）。智能投顾零售服务方面，公司推出国内首个陪伴型理财机器人钱大白，并控股国内首家量化投资策略超市微量网（www.wquant.com）。 量邦科技曾获“2015金融服务行业TOP10”等荣誉，控股公司微量网入选“福布斯中国互联网金融50强”,陪伴型理财机器人钱大白入选由亚洲银行家主办的2016中国金融科技作品展。
+                                    <br />&nbsp;&nbsp;
+                                    <br />&nbsp;&nbsp;
+                                    <br />&nbsp;&nbsp;
+                                    <br /> 【联系方式】
+                                    <br /> 有意者请发简历到liuyz@quanttech.cn 请以"应聘职位-姓名"为邮件主题及简历名称格式。
+                                    <br />&nbsp;&nbsp;
+                                    <br /> --
+                                    <br />&nbsp;&nbsp;
+                                    <br />
+                                    <font class="f000"></font>
+                                    <font class="f001">※ 来源:·水木社区 <a target="_blank" href="http://www.newsmth.net">http://www.newsmth.net</a>·[FROM: 114.247.25.*]</font>
+                                    <font class="f000">
+                                        <br /> </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr class="a-bottom">
+                            <td class="a-left">
+                                <ul class="a-func a-func-info">
+                                    <li>
+                                        <samp class="ico-pos-query"></samp><a href="/nForum/user/query/yxl5995">查看</a></li>
+                                    <li>
+                                        <samp class="ico-pos-mess"></samp><a href="/nForum/mail/Career_Upgrade/reply/499906?id=yxl5995" class="a-post">发信</a></li>
+                                    <li>
+                                        <samp class="ico-pos-friend"></samp><a href="/nForum/friend/ajax_add.json?id=yxl5995" class="a-func-friend a-post">加好友</a></li>
+                                </ul>
+                            </td>
+                            <td><a href="#" class="c63f a-back">返回顶部</a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="sogou_banner">
+                    <div id="midadv_slider">
+                        <ul class="midadv_show">
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2015-06-29-16-02-44.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2015-07-01-17-47-40.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2015-07-01-17-48-51.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2015-09-18-13-51-30.png" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2015-12-17-15-11-03.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-01-31-17-53-37.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-04-14-12-13-06.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-06-08-16-24-47.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-07-06-13-46-04.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.jiaju100.com/" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-07-22-14-32-07.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-08-22-16-36-49.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-11-14-14-45-10.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-11-14-14-48-58.jpg" /></a>
+                            </li>
+                            <li class="">
+                                <a style="display:block" href="http://www.newsmth.net/nForum/#!board/Occupier" target="_blank"><img src="http://images.newsmth.net/nForum/files/adv/2016-12-20-09-52-42.jpg" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="dt_bfd_box"></div>
+            </div>
+            <div style="text-align:center">
+                <iframe src="/nForum/googlead/article_down" frameborder="0" width="960" height="90" scrolling="no"></iframe>
+                <!--<iframe src="/nForum/baiduunion/article_down" frameborder="0" width="750" height="110" scrolling="no"></iframe><div id="footer_ad" style="width:960px; height:90px; border:none; margin:0px 0 0 0px;"></div><script type="text/javascript">google_ad_client = "ca-pub-3048307328828403";/* 水木社区 贴子页最下方 */google_ad_slot = "1418744379";google_ad_width = 960;google_ad_height = 90;</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>-->
+            </div>
+            <div class="t-pre-bottom">
+                <div class="page">
+                    <ul class="pagination">
+                        <li class="page-pre">文章数:<i>1</i>&emsp;分页:</li>
+                        <li>
+                            <ol title="分页列表" class="page-main">
+                                <li class="page-select"><a title="当前页">1</a></li>
+                            </ol>
+                        </li>
+                        <li class="page-suf"></li>
+                    </ul>
+                </div>
+                <div class="t-btn">
+                    <form id="f_search" method="get" action="/nForum/s/article">
+                        <input type="text" class="input-text input" name="t1" placeholder="输入关键字" size="16" />
+                        <input type="text" class="input-text input" name="au" placeholder="输入作者ID" size="12" />
+                        <input type="checkbox" name="m" id="c_m" />
+                        <label for="c_m">精华帖</label>
+                        <input type="checkbox" name="a" id="c_a" />
+                        <label for="c_a">带附件</label>
+                        <input type="submit" class="button" value="搜索" />&emsp;&emsp;
+                        <input type="button" class="button" value="超级搜索" onclick="window.open('http://ar.newsmth.net/search.jsp?boardname=Career_Upgrade')" />
+                        <input type="hidden" name="b" value="Career_Upgrade" />
+                    </form>
+                </div>
+            </div>
+            <script id="tmpl_forward" type="text/template">
+                <form id="a_forward" action="<%=action%>" method="post">
+                    <ul>
+                        <li><span>收件人:</span>
+                            <input type="text" class="input-text" name="target" />
+                            <select id="a_forward_list">
+                                <option value="">选择好友</option>
+                                <%_.each(friends,function(f){%>
+                                    <option value="<%=f%>">
+                                        <%=f%>
+                                    </option>
+                                    <%});%>
+                            </select>
+                        </li>
+                        <li><span>合集转寄:</span>
+                            <input type="checkbox" name="threads" />&emsp;&emsp;<span class="noref" style="display:none">不带引文:</span>
+                            <input class="noref" type="checkbox" name="noref" style="display:none" />
+                        </li>
+                        <li><span>不含附件:</span>
+                            <input type="checkbox" name="noatt" />
+                        </li>
+                        <li class="internet" style="display:none"><span>转为BIG5:</span>
+                            <input type="checkbox" name="big5" />&emsp;&emsp;<span>过滤ANSI:</span>
+                            <input type="checkbox" name="noansi checked=" checked " /></li></form></script><script type="text/javascript ">window["_BFD "] = window["_BFD "] || {};_BFD.BFD_INFO = {"page_type " : "detail "};</script>    </section></section><div class="clearfix " style="width:100% "></div><footer id="bot_foot "><figure id="bot_logo "><a href="/nForum/mainpage "><img src="http://images.newsmth.net/nForum/img/logo_footer.gif " /></a></figure><aside id='bot_info'>当前论坛上总共有<span class="c-total ">43086</span>人在线，其中注册用户<span class="c-user ">13102</span>人，访客<span class="c-guest ">29984</span>人。<br />powered by BYR-Team<span class="copyright ">&copy;</span>2009-2017. KBS Dev-Team<span class="copyright ">&copy;</span>2011-2017<br />all rights reserved</aside></footer><script type="text/javascript " src="http://images.newsmth.net/nForum/js/pack_c5cfdbaddc.js "></script><script type="text/javascript ">;var BShare={sites:[{"title ":"分享到新浪微博 ","url ":"http://service.weibo.com/share/share.php?url=%url%&title=%content%&pic=&appkey=57541378&ralateUid=2149648625 ","img ":'http://www.sinaimg.cn/blog/developer/wiki/16x16.png'},{"title ":"分享到腾讯微博 ","url ":"http://v.t.qq.com/share/share.php?url=%url%&title=%content%&appkey=185c1394b1bc4fdd905cdf3ca861b366&site=http://www.newsmth.net ","img ":'http://v.t.qq.com/share/images/s/weiboicon16.png'},{"title ":"分享到豆瓣 ","url ":"http://www.douban.com/recommend/?url=%url%&title=%content% ","img ":'http://img2.douban.com/pics/fw2douban_s.png'}],template:'<img style="margin-left:5px;cursor:pointer;vertical-align:bottom;width:16px;height:16px; " title="%title% " src="%img% " />',init:function(area,url,content){$(this.sites).each(function(i,e){var template=BShare.template;e.url=e.url.replace(/%url%/g,encodeURIComponent(url));e.url=e.url.replace(/%content%/g,encodeURIComponent(content));template=template.replace(/%img%/g,e.img);template=template.replace(/%title%/g,e.title);$(template).bind('click',e.url,BShare.handler).appendTo(area)})},handler:function(e){var f=function(){if(!window.open(e.data,'_blank','toolbar=0,resizable=1,scrollbars=yes,status=1,width=640,height=480'))location.href=e.data};if(/Firefox/.test(navigator.userAgent))setTimeout(f,0);else f()}};$(function(){$('#quick_text').ubb({enable:false,ubb_img_path:SYS.base+"/img/ubb/ ",ubb_em:$('#em_img')});var validPost=function(){if(!SESSION.get('is_login')){$('#u_login_id').alertDialog(SYS.code.MSG_LOGIN);return false}return true};$('#quick_post').submit(function(){if($.trim($('#quick_text').val())==''){$('#quick_text').alertDialog(SYS.code.MSG_NULL);return false}if(validPost()){$.post($('#quick_post').attr('action'),$('#quick_post').getPostData(),function(json){DIALOG.ajaxDialog(json)},'json')}return false});$('#f_search').submit(function(){BODY.open($(this).attr('action')+'?'+_.map($(this).getPostData(),function(v,k){v=encodeURIComponent(encodeURIComponent(v));return k+'='+v}).join('&'));return false});$('#f_search input[placeholder]').placeholder();$('#body').on('click','.a-post',validPost).on('click','#a_reply',function(){validPost();$('#quick_text').focus()}).on('click','.a-func-friend',function(){$.post($(this).attr('href'),function(json){delete json['default'];delete json['list'];DIALOG.ajaxDialog(json)},'json');return false}).on('keydown','#quick_text',function(event){if(event.ctrlKey&&event.keyCode==13){$('#quick_post').submit();return false}}).on('click','.a-func-del',function(){var self=this;DIALOG.confirmDialog('确认删除此文章?',function(){$.post($(self).attr('href'),function(json){DIALOG.ajaxDialog(json)},'json')});return false}).on('click','.a-back',function(){$('html,body').animate({scrollTop:0},500)});BShare.init($('#a_share').parent(),$('#a_share').attr('_u'),$('#a_share').attr('_c'));if($('.map-map').length>0)nForumMap.loadJs('nForumMap.parseMap',null);var friends=SYS.cache('friends');$('#body').on('click','.a-func-forward',function(){if(!SESSION.get('is_login')){$('#u_login_id').alertDialog(SYS.code.MSG_LOGIN);return false}var d=DIALOG.formDialog(_.template($('#tmpl_forward').html())({action:$(this).attr('href'),friends:friends||[]}),{buttons:[{text:SYS.code.COM_SUBMIT,click:function(){var f=$(this).find('#a_forward');$.post(f.attr('action'),f.getPostData(),function(repo){DIALOG.ajaxDialog(repo)});$(this).dialog('close')}},{text:SYS.code.COM_CANCAL,click:function(){$(this).dialog('close')}}]}).on('change','select',function(){$(this).prev().val($(this).val()).change()}).on('change','input[name="target "]',function(){if(/@/.test($(this).val())){d.find('.internet').show()}else{d.find('.internet').hide()}}).on('change','input[name="threads "]',function(){if($(this).prop('checked')){d.find('.noref').show()}else{d.find('.noref').hide()}});if(!friends){$.getJSON(SYS.ajax.friend_list,function(json){if(!_.isArray(json))return;d.find('#a_forward_list').append(_.reduce(json,function(ret,item){ret+=('<option value=" '+item+' ">'+item+'</option>');return ret},''));SYS.cache('friends',json)})}return false});$('#body').on('click','.a-func-docross',function(){if(!SESSION.get('is_login')){$('#u_login_id').alertDialog(SYS.code.MSG_LOGIN);return false}var d=DIALOG.formDialog(_.template($('#tmpl_docross').html())({action:$(this).attr('href')}),{buttons:[{text:SYS.code.COM_SUBMIT,click:function(){var f=$(this).find('#a_docross');$.post(f.attr('action'),f.getPostData(),function(repo){DIALOG.ajaxDialog(repo)});$(this).dialog('close')}},{text:SYS.code.COM_CANCAL,click:function(){$(this).dialog('close')}}]});return false});if(typeof sh_init!=='undefined')sh_init();$('#body').on('click','#recommend',function(){var href=$(this).attr('href');$.get(href,function(data){if(!data.ajax_st){DIALOG.alertDialog(data.ajax_msg)}else{DIALOG.confirmDialog("本站只接受推荐优秀原创内容，请勿推荐无关帖。确认推荐? ",function(){$.get(href+'?do',function(data){if(!data.ajax_st){DIALOG.alertDialog(data.ajax_msg)}else{DIALOG.alertDialog('推荐成功!')}})})}});return false});$('#recommend').css('visibility','visible');$('#authimg').click(function(){this.src=$(this).attr('_src')+"?_t="+$.random()}).click();if($('#like_util').attr('_b')!=undefined&&$('#like_util').attr('_a')!=undefined){var lb=$('#like_util').attr('_b');var la=$('#like_util').attr('_a');$('.add_like').click(function(){var data={action:SYS.base+'/article/'+lb+'/ajax_add_like/'+la+'.json'};var d=DIALOG.formDialog(_.template($('#tmpl_add_like').html())(data),{width:600,buttons:[{text:SYS.code.COM_SUBMIT,click:function(){var f=$(this).find('#form_add_like');$.post(f.attr('action'),f.getPostData(),function(repo){DIALOG.ajaxDialog(repo)});$(this).dialog('close')}},{text:SYS.code.COM_CANCAL,click:function(){$(this).dialog('close')}}]});return false})}var midadv_defaultOpts={interval:4000,fadeInTime:300,fadeOutTime:200};var _midadv_bodies=$(" #midadv_slider .midadv_show li ");_midadv_bodies.eq(0).addClass("cur ");var _midadv_count=_midadv_bodies.length;var _midadv_current=0;var _midadv_intervalID=null;var midadv_stop=function(){window.clearInterval(_midadv_intervalID)};var midadv_slide=function(){_midadv_current=(_midadv_current>=(_midadv_count-1))?0:(++_midadv_current);_midadv_bodies.filter(":visible ").fadeOut(midadv_defaultOpts.fadeOutTime,function(){_midadv_bodies.eq(_midadv_current).fadeIn(midadv_defaultOpts.fadeInTime);_midadv_bodies.removeClass("cur ").eq(_midadv_current).addClass("cur ")})};var midadv_go=function(){midadv_stop();if(_midadv_count>1)_midadv_intervalID=window.setInterval(function(){midadv_slide()},midadv_defaultOpts.interval)};_midadv_bodies.hover(midadv_stop,midadv_go);midadv_go()});</script></body></html>

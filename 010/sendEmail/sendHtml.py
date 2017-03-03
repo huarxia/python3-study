@@ -77,7 +77,8 @@ if __name__ == '__main__':
         sys.exit()
 
     print('正在发送邮件...')
-    to_list = ['769904012@qq.com']
+    # to_list = ['769904012@qq.com']
+    to_list = 
     subject = '应聘高级前端工程师_刘彪'
     with open('./templet.html', 'rt') as f:
         data = f.read()
