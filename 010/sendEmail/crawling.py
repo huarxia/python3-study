@@ -43,6 +43,22 @@ def main():
             hrefArray.append(str(href[0]))
     # print(hrefArray)
     saveHrefJson('./data/hrefArray.json', hrefArray)
+    hrefSendedFileData = readFile('./data/hrefSended.json').split('\n\n')
+    hrefSendedFileData.pop(len(hrefSendedFileData) - 1)
+    hrefSendedStr = '\n\n'.join(hrefSendedFileData) + '\n\n'
+    for e in hrefArray:
+        state = 0
+        e = 'http://www.newsmth.net' + e
+        for item in hrefSendedFileData:
+            if not re.findall("http\:\/\/www.newsmth.net", item):
+                item = 'http://www.newsmth.net' + item
+            print(item + ':' + e)
+            if e == item:
+                state += 1
+        if state <= 0:
+            e += '\n\n'
+            hrefSendedStr += e
+    saveHrefJson('./data/hrefSended.json', hrefSendedStr)
     return getEmailOfHreflist(hrefArray)
 
 def saveHrefJson (fileName, hrefArray):
@@ -101,4 +117,4 @@ def getEmailOfHreflist (hrefArray):
 if __name__ == "__main__":
     # getreqHrefHtml('http://www.newsmth.net//nForum/article/Career_Upgrade/499906')
     emailList = main()
-    print(emailList)
+   # print(emailList)
