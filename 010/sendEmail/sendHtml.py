@@ -23,10 +23,10 @@ def send_email(host, username, psd, send_to, bcc, subject, content):
     # msg['Bcc'] = ",".join(bcc)
 
     try:
-        # s = smtplib.SMTP_SSL(host, 465)
-        # s.login(username, psd)
-        # s.sendmail(username, send_to, msg.as_string())
-        # s.close()
+        s = smtplib.SMTP_SSL(host, 465)
+        s.login(username, psd)
+        s.sendmail(username, send_to, msg.as_string())
+        s.close()
         fileData = crawling.readFile('./data/sended.json').split('\n\n')
         fileData.pop(len(fileData) - 1)
         emailStr = '\n\n'.join(fileData) + '\n\n'

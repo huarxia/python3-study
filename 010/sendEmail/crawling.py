@@ -52,7 +52,6 @@ def main():
         for item in hrefSendedFileData:
             if not re.findall("http\:\/\/www.newsmth.net", item):
                 item = 'http://www.newsmth.net' + item
-            print(item + ':' + e)
             if e == item:
                 state += 1
         if state <= 0:
@@ -117,4 +116,4 @@ def getEmailOfHreflist (hrefArray):
 if __name__ == "__main__":
     # getreqHrefHtml('http://www.newsmth.net//nForum/article/Career_Upgrade/499906')
     emailList = main()
-   # print(emailList)
+    print(emailList)
