@@ -21,7 +21,6 @@ def send_email(host, username, psd, send_to, bcc, subject, content):
     msg['Subject'] = u'%s' % subject
     msg['To'] = ",".join(send_to)
     # msg['Bcc'] = ",".join(bcc)
-
     try:
         s = smtplib.SMTP_SSL(host, 465)
         s.login(username, psd)
@@ -109,5 +108,5 @@ if __name__ == '__main__':
     for email in to_list:
         emailList = []
         emailList.append(email)
-        emailList.append('huaxia@itoxs.com')
+        # emailList.append('huaxia@itoxs.com')
         send_email(host, username, passwd, emailList, bcc, subject, content)

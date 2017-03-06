@@ -11,7 +11,7 @@ sys.setdefaultencoding('utf8')
 def main():
     """获取链接列表主方法
     """
-    url = 'http://www.newsmth.net/nForum/s/article?ajax&t1=%25E5%2589%258D%25E7%25AB%25AF&au=&b=Career_Upgrade'
+    url = 'http://www.newsmth.net/nForum/s/article?ajax&ajax=&t1=%25E5%2589%258D%25E7%25AB%25AF&au=&b=Career_Upgrade&p=1'
     content = urllib2.urlopen(url).read().decode('gbk').encode('utf8')
     # print(content)
     # you should see the ouput html
@@ -25,7 +25,6 @@ def main():
     # 类似： ['<a target="_blank"href="/nForum/article/Career_Upgrade/500269" title="aaa"><samp class="tag ico-pos-article-normal"></samp></a>']
     result =  re.findall(res_tr, content, re.S|re.M)
     # print(len(foundA)) 实际测试获取的是当前页所有的正确链接
-    # print(result)
 
     hrefArray = []
     fileData = readFile('./data/hrefArray.json').split(',')
@@ -116,4 +115,4 @@ def getEmailOfHreflist (hrefArray):
 if __name__ == "__main__":
     # getreqHrefHtml('http://www.newsmth.net//nForum/article/Career_Upgrade/499906')
     emailList = main()
-    print(emailList)
+    # print(emailList)
