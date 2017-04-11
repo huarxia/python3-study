@@ -10,6 +10,9 @@ import os,sys
 result = []
 
 def get_all (cwd, suffixName):
+    """
+        获取所有需要复制的路径
+    """
 
     # 遍历当前目录，获取文件列表
     get_dir = os.listdir(cwd)
