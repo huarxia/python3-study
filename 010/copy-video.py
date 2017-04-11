@@ -56,4 +56,4 @@ def copy_video (localDir = os.getcwd(), suffixName = '.mp4', *destinationDir):
 if __name__ == '__main__':
     local = '/Users/huaxia/macsoft'
     copy_video(local, '.avi', '123')
-    print(local + '目录下目标文建，复制完毕!!!')
+    print(local + '目录下目标文件，复制完毕!!!')
