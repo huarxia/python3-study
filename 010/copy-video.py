@@ -12,6 +12,8 @@ result = []
 def get_all (cwd, suffixName):
     """
         获取所有需要复制的路径
+        cwd: 所需要复制的路径
+        suffixName: 需要复制的后缀名文件
     """
 
     # 遍历当前目录，获取文件列表
