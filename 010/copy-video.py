@@ -32,7 +32,7 @@ def get_all (cwd, suffixName):
             # 把文件名的当前路径放入列表
             result.append(sub_dir)
             # 对列表计数
-            print(len(result))
+            # print(len(result))
 
 def copy_video (localDir = os.getcwd(), suffixName = '.mp4', *destinationDir):
     """
@@ -42,18 +42,20 @@ def copy_video (localDir = os.getcwd(), suffixName = '.mp4', *destinationDir):
         suffixName: 复制文件的后缀名，默认MP4
         destinationDir: 复制的目的地文件夹 可选参数
     """
-    print('复制问文件夹是-->' + localDir)
+    print('复制的文件夹是-->' + localDir)
     destinationDir = localDir + '/' + destinationDir[0]
-    if (destinationDir and not(os.path.isdir(destinationDir[0]))):
-        destinationDir = localDir + '/' + destinationDir[0]
+    if (destinationDir and os.path.isdir(destinationDir[0])):
+        # destinationDir = localDir + '/' + destinationDir[0]
+        # print(destinationDir)
         os.mkdir(destinationDir)
 
     get_all(localDir, suffixName)
     for i in result:
-        # print(i)
+        print(i)
+        print(destinationDir)
         os.system('cp ' + i + ' ' + destinationDir)
 
 if __name__ == '__main__':
-    local = '/Users/huaxia/macsoft'
-    copy_video(local, '.avi', '123')
+    local = '/Users/liubiao/python'
+    copy_video(local, '.mp4', 'Python視頻')
     print(local + '目录下目标文件，复制完毕!!!')

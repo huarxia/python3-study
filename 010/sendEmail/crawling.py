@@ -11,7 +11,7 @@ sys.setdefaultencoding('utf8')
 def main():
     """获取链接列表主方法
     """
-    url = 'http://www.newsmth.net/nForum/s/article?ajax&ajax=&t1=%25E5%2589%258D%25E7%25AB%25AF&au=&b=Career_Upgrade&p=1'
+    url = 'http://alumni.newsmth.net/nForum/s/article?ajax&t1=%25E5%2589%258D%25E7%25AB%25AF&au=&b=Career_Upgrade'
     content = urllib2.urlopen(url).read().decode('gbk').encode('utf8')
     # print(content)
     # you should see the ouput html
